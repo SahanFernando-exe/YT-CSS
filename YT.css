@@ -1,0 +1,88 @@
+:root{
+  --borders-widths: 16px;
+  --spacings-gaps: 8px;
+  --text-primary: #aaaaaa;
+  --text-primary-hover: #ffffff;
+  --text-secondary: #666666;
+  --text-secondary-hover: #888888;
+  --highcol: #ff0000;
+  --highcol-dark: #600000;
+  --highcol-transp: rgba(255, 0, 0, 0.5);
+  --background-col: #202020;
+
+  
+/* Main video player */
+  
+  /* Main Formating:
+      - reduced spacing
+  */
+ytd-watch-flexy > #columns > #primary{
+  margin: 0px;
+  padding: var(--borders-widths);
+}
+  
+ytd-watch-flexy > #columns > #secondary{
+  margin: 0px;
+  padding: 0;
+  padding-top: var(--borders-widths);
+  width: 420px;
+}
+
+  /* shorts sections:
+      - collapsed, expands on hover
+      - shorts highlight on hover
+  */
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+{
+  margin-top: var(--spacings-gaps);
+  border: 0;
+  border-left: 4px solid var(--highcol-dark);
+}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #title-container
+{
+  margin-top: var(--spacings-gaps);
+  margin-bottom: var(--spacings-gaps);
+  padding-left: 8px;
+}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents
+{
+  transition: 0.25s;
+  height: 0px;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
+  #contents
+{
+  transition: 0.25s;
+  height: fit-content;
+}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+{
+  margin: 0;
+}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2
+{
+  transition: 0.25s;
+  padding: var(--spacings-gaps);
+  border-radius: 12px;
+  margin-right: calc(-1 * var(--spacings-gaps));
+}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2:hover
+{
+  transition: 0.25s;
+  background-color: var(--highcol-dark);
+}
