@@ -60,7 +60,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
   #contents
 {
   transition: 0.25s;
-  height: fit-content;
+  height: 335px;
 }
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
