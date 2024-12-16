@@ -1,6 +1,6 @@
 :root{
   --borders-widths: 16px;
-  --spacings-gaps: 8px;
+  --spacings-gaps: 4px;
   --text-primary: #aaaaaa;
   --text-primary-hover: #ffffff;
   --text-secondary: #666666;
@@ -31,19 +31,23 @@ ytd-watch-flexy > #columns > #secondary{
   /* shorts sections:
       - collapsed, expands on hover
       - shorts highlight on hover
+      - shorts thumbnails made smaller
+      - shorts title fontsize reduced
+      - more options icon no longer visible until that short is hovered
+      - indication for hovered video
   */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 {
   margin-top: var(--spacings-gaps);
   border: 0;
-  border-left: 4px solid var(--highcol-dark);
+  border-left: 4px solid var(--highcol);
 }
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #title-container
 {
-  margin-top: var(--spacings-gaps);
-  margin-bottom: var(--spacings-gaps);
+  margin-top: calc(2 * var(--spacings-gaps));
+  margin-bottom: calc(2 * var(--spacings-gaps));
   padding-left: 8px;
 }
 
@@ -60,7 +64,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
   #contents
 {
   transition: 0.25s;
-  height: 335px;
+  height: 300px;
 }
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
@@ -74,9 +78,10 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > ytm-shorts-lockup-view-model-v2
 {
   transition: 0.25s;
-  padding: var(--spacings-gaps);
+  padding: 0;
+  padding-top: var(--spacings-gaps);
+  margin: calc(0.5 * var(--spacings-gaps));
   border-radius: 12px;
-  margin-right: calc(-1 * var(--spacings-gaps));
 }
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
@@ -84,5 +89,42 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > ytm-shorts-lockup-view-model-v2:hover
 {
   transition: 0.25s;
-  background-color: var(--highcol-dark);
+  border-top: 4px solid var(--highcol);
+  border-radius: 0;
 }
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2{width: 110px; height: fit-content;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model{width: 100%; height: fit-content;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > a > div{width: 100%; height: 200px;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div{box-sizing: border-box; width: 100%; padding: var(--spacings-gaps); padding-right: 20px;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu{width: 20px;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > h3{font-size: 14px;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{width: 100%; aspect-ratio: 1/1;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{opacity: 0;}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
+> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
+> ytm-shorts-lockup-view-model-v2:hover ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{opacity: 1;}
