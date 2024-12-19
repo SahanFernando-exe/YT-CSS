@@ -5,7 +5,7 @@
   --text-primary-hover: #ffffff;
   --text-secondary: #666666;
   --text-secondary-hover: #888888;
-  --highcol: #ff0000;
+  --highcol: #ee0000;
   --highcol-dark: #600000;
   --highcol-transp: rgba(255, 0, 0, 0.5);
   --background-col: #202020;
@@ -34,7 +34,7 @@ ytd-watch-flexy > #columns > #secondary{
       - shorts thumbnails made smaller
       - shorts title fontsize reduced
       - more options icon no longer visible until that short is hovered
-      - indication for hovered video
+      - 
   */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 {
@@ -54,7 +54,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents
 {
-  transition: 0.25s;
+  transition: 0.25s ease;
   height: 0px;
   overflow: hidden;
   margin-top: 0;
@@ -63,7 +63,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
   #contents
 {
-  transition: 0.25s;
+  transition: 0.25s ease;
   height: 300px;
 }
 
@@ -128,3 +128,11 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2:hover ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{opacity: 1;}
+
+/* testing main player
+#player-container{box-sizing: border-box; border: 5px solid yellow; border-radius: 20px;}
+ytd-player{box-sizing: border-box; border: 5px solid red; border-radius: 20px;}
+ytd-player > div{box-sizing: border-box; border: 5px solid blue; border-radius: 20px;}
+ytd-player > div > div{box-sizing: border-box; border: 5px solid green; border-radius: 20px;}
+
+video{width: 100%; border-radius: 40px;}*/
