@@ -3,7 +3,7 @@
      please remember this project is still early in development */
   
   /* general layout settings */
-  --roundedness: 12px;
+  --roundedness: 0px;
   --button-roundedness: 12px; /* percentages will provide consistent shaping for buttons but varied roundedness for different sized buttons, use '50%' for pill style buttons. a px value for rounded rectangle style buttons, recommended range: 0px - 24px */
   --borders-widths: 16px;
   --space-below-main-player: 32px;
@@ -35,22 +35,34 @@
   --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
   --trans-type-slick-reverse: cubic-bezier(.5,0,.2,1);
   --trans-type-smooth-end: cubic-bezier(.5,1,.5,1);
-
+}
   
 /* Main video player */
   
   /* Main Formating:
       - reduced spacing
   */
-ytd-watch-flexy > #columns > #primary
+
+/*
+ytd-watch-flexy > #columns
+{ margin-top: 20px;}
+
+ytd-watch-flexy > #columns > #primary           ############### this causes issue
 { margin: 0px;
-  padding: var(--borders-widths);}
-  
+  padding: 0 0;
+
 ytd-watch-flexy > #columns > #secondary
 { margin: 0px;
-  padding: 0;
-  padding-top: var(--borders-widths);
+  padding: 0px 0px;
   width: 420px;}
+*/
+ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy{ padding-right: 0px;}
+
+ /* main player */
+ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy {border-radius: 0px;}
+ytd-player > div > div{ border-radius: var(--roundedness);}
+
+body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--roundedness) !important;} /* not working due to extension */
 
   /* shorts sections:
       - collapsed, expands on hover
@@ -174,9 +186,11 @@ ytd-comment-thread-renderer:hover #comment #body > #action-menu
 
 
 /*
-#player-container{box-sizing: border-box; border: 5px solid yellow; border-radius: 20px;}
-ytd-player{box-sizing: border-box; border: 5px solid red; border-radius: 20px;}
-ytd-player > div{box-sizing: border-box; border: 5px solid blue; border-radius: 20px;}
-ytd-player > div > div{box-sizing: border-box; border: 5px solid green; border-radius: 20px;}
+#player-container{box-sizing: border-box; border: 5px solid yellow;}
+ytd-player{box-sizing: border-box; border: 5px solid red; border-radius: 0px;}
+ytd-player > div{box-sizing: border-box; border: 5px solid blue;}
+ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}*/
 
-video{width: 100%; border-radius: 40px;}*/
+.html5-video-container{ width: 100%; height: fit-content;}
+
+video{width: 100% !important; height: auto !important;}
