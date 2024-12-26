@@ -1,22 +1,37 @@
 :root{
-  --trans-time-short: 0.1s; /* recommended range: 0.02s - 0.2s */
-  --trans-time-medium: 0.3s;
-  --trans-time-long: 0.5s;
+  /* some of these variables dont do anything at all as of yet and some are only partially implemented.
+     please remember this project is still early in development */
+  
+  /* general layout settings */
   --roundedness: 12px;
+  --button-roundedness: 12px; /* percentages will provide consistent shaping for buttons but varied roundedness for different sized buttons, use '50%' for pill style buttons. a px value for rounded rectangle style buttons, recommended range: 0px - 24px */
   --borders-widths: 16px;
+  --space-below-main-player: 32px;
   --spacings-gaps: 4px;
-  --comments-spacings: 12px;
-  --comments-padding: 16px;
-  --comments-margin: 0px;
+
+  /* general text settings */
   --text-primary: #aaaaaa;
   --text-primary-hover: #ffffff;
   --text-secondary: #666666;
   --text-secondary-hover: #888888;
+
+  /* general color variables */
   --highcol: #ee0000;
   --highcol-dark: #301010;
   --highcol-transp: rgba(255, 0, 0, 0.5);
   --background-col: #202020;
 
+  /* transitions durations */
+  --trans-time-short: 0.1s; /* recommended range: 0.02s - 0.2s */
+  --trans-time-medium: 0.3s;
+  --trans-time-long: 0.5s;
+
+  /* comment section settings */
+  --comments-spacings: 12px;
+  --comments-padding: 16px;
+  --comments-margin: 0px;
+
+  /* dont change these */
   --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
   --trans-type-slick-reverse: cubic-bezier(.5,0,.2,1);
   --trans-type-smooth-end: cubic-bezier(.5,1,.5,1);
@@ -104,7 +119,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
  /* shorts section: short thumbnail */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
-> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > a > div{width: 100%; height: 200px;}
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > a > div{width: 100%; height: 200px; border-radius: var(--roundedness);}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
@@ -121,7 +136,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
   /* shorts section: short more menu: button style */ 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
-> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{width: 100%; aspect-ratio: 1/1;}
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{width: 100%; border-radius: var(--button-roundedness);}
 
   
   /* shorts section: short more menu: show button on short hover */
