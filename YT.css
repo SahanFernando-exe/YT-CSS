@@ -1,14 +1,25 @@
 :root{
+  --trans-time-short: 0.1s; /* recommended range: 0.02s - 0.2s */
+  --trans-time-medium: 0.3s;
+  --trans-time-long: 0.5s;
+  --roundedness: 12px;
   --borders-widths: 16px;
   --spacings-gaps: 4px;
+  --comments-spacings: 12px;
+  --comments-padding: 16px;
+  --comments-margin: 0px;
   --text-primary: #aaaaaa;
   --text-primary-hover: #ffffff;
   --text-secondary: #666666;
   --text-secondary-hover: #888888;
   --highcol: #ee0000;
-  --highcol-dark: #600000;
+  --highcol-dark: #301010;
   --highcol-transp: rgba(255, 0, 0, 0.5);
   --background-col: #202020;
+
+  --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
+  --trans-type-slick-reverse: cubic-bezier(.5,0,.2,1);
+  --trans-type-smooth-end: cubic-bezier(.5,1,.5,1);
 
   
 /* Main video player */
@@ -16,17 +27,15 @@
   /* Main Formating:
       - reduced spacing
   */
-ytd-watch-flexy > #columns > #primary{
-  margin: 0px;
-  padding: var(--borders-widths);
-}
+ytd-watch-flexy > #columns > #primary
+{ margin: 0px;
+  padding: var(--borders-widths);}
   
-ytd-watch-flexy > #columns > #secondary{
-  margin: 0px;
+ytd-watch-flexy > #columns > #secondary
+{ margin: 0px;
   padding: 0;
   padding-top: var(--borders-widths);
-  width: 420px;
-}
+  width: 420px;}
 
   /* shorts sections:
       - collapsed, expands on hover
@@ -34,73 +43,65 @@ ytd-watch-flexy > #columns > #secondary{
       - shorts thumbnails made smaller
       - shorts title fontsize reduced
       - more options icon no longer visible until that short is hovered
-      - 
   */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
-{
+{ transition: var(--trans-time-short);
   margin-top: var(--spacings-gaps);
+  padding-left: 2px;
   border: 0;
-  border-left: 4px solid var(--highcol);
-}
+  border-left: 2px solid var(--highcol);}
+
+ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
+{ transition: var(--trans-time-short);
+  padding-left: 0px;
+  border-left: 4px solid var(--highcol);}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #title-container
-{
-  margin-top: calc(2 * var(--spacings-gaps));
+{ margin-top: calc(2 * var(--spacings-gaps));
   margin-bottom: calc(2 * var(--spacings-gaps));
-  padding-left: 8px;
-}
+  padding-left: 8px;}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents
-{
-  transition: 0.25s ease;
+{ transition: var(--trans-time-medium) var(--trans-time-short) var(--trans-type-slick);
   height: 0px;
   overflow: hidden;
-  margin-top: 0;
-}
+  margin-top: 0;}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
   #contents
-{
-  transition: 0.25s ease;
-  height: 300px;
-}
+{ transition: var(--trans-time-medium) var(--trans-time-short) var(--trans-type-slick);
+  height: 300px;}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
-{
-  margin: 0;
-}
+{ margin: 0;}
 
+  /* each short */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2
-{
-  transition: 0.25s;
+{ transition: var(--trans-time-short) var(--trans-type-smooth-end);
+  width: 110px;
+  height: fit-content;
   padding: 0;
   padding-top: var(--spacings-gaps);
   margin: calc(0.5 * var(--spacings-gaps));
-  border-radius: 12px;
-}
-
+  border-top: 0px solid var(--highcol);
+  border-radius: 0px;}
+  
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2:hover
-{
-  transition: 0.25s;
-  border-top: 4px solid var(--highcol);
-  border-radius: 0;
-}
-
-ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
-> #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
-> ytm-shorts-lockup-view-model-v2{width: 110px; height: fit-content;}
+{ transition: var(--trans-time-medium) var(--trans-type-smooth-end);
+  border-top: 4px solid var(--highcol);}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model{width: 100%; height: fit-content;}
-
+  
+ /* shorts section: short thumbnail */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > a > div{width: 100%; height: 200px;}
@@ -117,19 +118,47 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > h3{font-size: 14px;}
 
+  /* shorts section: short more menu: button style */ 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{width: 100%; aspect-ratio: 1/1;}
 
+  
+  /* shorts section: short more menu: show button on short hover */
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
-> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{opacity: 0;}
+> ytm-shorts-lockup-view-model-v2 > ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{transition: var(--trans-time-short); opacity: 0;}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
-> ytm-shorts-lockup-view-model-v2:hover ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{opacity: 1;}
+> ytm-shorts-lockup-view-model-v2:hover ytm-shorts-lockup-view-model > div > .shortsLockupViewModelHostOutsideMetadataMenu > button{transition: var(--trans-time-medium); opacity: 1;}
 
-/* testing main player
+
+
+/* Comments section */
+ytd-comment-thread-renderer
+{ transition: var(--trans-time-short);
+  margin: 0 var(--comments-margin);
+  margin-top: var(--comments-spacings);
+  padding: var(--comments-padding);
+  border-radius: var(--roundedness);
+  background-color: var(--highcol-dark);}
+
+ytd-comment-thread-renderer:hover
+{ transition: var(--trans-time-medium) var(--trans-type-smooth-end);
+  background-color: var(--highcol);}
+  
+ytd-comment-thread-renderer > #comment > #body > #action-menu
+{ transition: var(--trans-time-short);
+  opacity: 0; width: 20px;
+  margin: 0 0 0 20px;}
+  
+ytd-comment-thread-renderer:hover #comment #body > #action-menu
+{ transition: var(--trans-time-medium);
+  opacity: 1;}
+
+
+/*
 #player-container{box-sizing: border-box; border: 5px solid yellow; border-radius: 20px;}
 ytd-player{box-sizing: border-box; border: 5px solid red; border-radius: 20px;}
 ytd-player > div{box-sizing: border-box; border: 5px solid blue; border-radius: 20px;}
