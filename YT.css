@@ -3,7 +3,7 @@
      please remember this project is still early in development */
   
   /* general layout settings */
-  --roundedness: 0px;
+  --roundedness: 12px;
   --button-roundedness: 12px; /* percentages will provide consistent shaping for buttons but varied roundedness for different sized buttons, use '50%' for pill style buttons. a px value for rounded rectangle style buttons, recommended range: 0px - 24px */
   --borders-widths: 16px;
   --space-below-main-player: 32px;
@@ -27,9 +27,11 @@
   --trans-time-long: 0.5s;
 
   /* comment section settings */
-  --comments-spacings: 12px;
+  --comments-spacing: 12px;
   --comments-padding: 16px;
   --comments-margin: 0px;
+  --comments-background-color: var(--highcol-dark);
+  --comments-background-color-hover: var(--highcol);
 
   /* dont change these */
   --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
@@ -166,14 +168,14 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 ytd-comment-thread-renderer
 { transition: var(--trans-time-short);
   margin: 0 var(--comments-margin);
-  margin-top: var(--comments-spacings);
+  margin-top: var(--comments-spacing);
   padding: var(--comments-padding);
   border-radius: var(--roundedness);
-  background-color: var(--highcol-dark);}
+  background-color: var(--comments-background-color);}
 
 ytd-comment-thread-renderer:hover
 { transition: var(--trans-time-medium) var(--trans-type-smooth-end);
-  background-color: var(--highcol);}
+  background-color: var(--comments-background-color-hover);}
   
 ytd-comment-thread-renderer > #comment > #body > #action-menu
 { transition: var(--trans-time-short);
