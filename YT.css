@@ -4,7 +4,7 @@
   
   /* general layout settings */
   --roundedness: 12px;
-  --button-roundedness: 12px; /* percentages will provide consistent shaping for buttons but varied roundedness for different sized buttons, use '50%' for pill style buttons. a px value for rounded rectangle style buttons, recommended range: 0px - 24px */
+  --button-roundedness: 8px; /* recommended range: 0px - 20px */
   --borders-widths: 16px;
   --space-below-main-player: 32px;
   --spacings-gaps: 4px;
@@ -17,9 +17,11 @@
 
   /* general color variables */
   --highcol: #ee0000;
-  --highcol-dark: #301010;
+  --highcol-dark: #401010;
   --highcol-transp: rgba(255, 0, 0, 0.5);
-  --background-col: #202020;
+  --background-color: #202020;
+  --item-background-color: var(--background-color);
+  --item-background-color-hover: var(--highcol-dark);
 
   /* transitions durations */
   --trans-time-short: 0.1s; /* recommended range: 0.02s - 0.2s */
@@ -30,8 +32,8 @@
   --comments-spacing: 12px;
   --comments-padding: 16px;
   --comments-margin: 0px;
-  --comments-background-color: var(--highcol-dark);
-  --comments-background-color-hover: var(--highcol);
+  --comments-background-color: var(--item-background-color);
+  --comments-background-color-hover: var(--item-background-color-hover);
 
   /* dont change these */
   --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
@@ -58,6 +60,7 @@ ytd-watch-flexy > #columns > #secondary
   padding: 0px 0px;
   width: 420px;}
 */
+
 ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy{ padding-right: 0px;}
 
  /* main player */
@@ -65,6 +68,15 @@ ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flex
 ytd-player > div > div{ border-radius: var(--roundedness);}
 
 body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--roundedness) !important;} /* not working due to extension */
+
+/* secondary column */
+  /* related buttons */
+#related > ytd-watch-next-secondary-results-renderer > #items #content #container > #scroll-container > #chips{display: flex; flex-wrap: wrap; margin: 0;}
+
+#related > ytd-watch-next-secondary-results-renderer > #items #content #container > #right-arrow{display: none;}
+
+#related > ytd-watch-next-secondary-results-renderer > #items #content #container > #scroll-container > #chips > *{flex-grow: 1; margin: 4px; padding: 4px; justify-content: center; border-radius: var(--button-roundedness);}
+
 
   /* shorts sections:
       - collapsed, expands on hover
@@ -191,7 +203,8 @@ ytd-comment-thread-renderer:hover #comment #body > #action-menu
 #player-container{box-sizing: border-box; border: 5px solid yellow;}
 ytd-player{box-sizing: border-box; border: 5px solid red; border-radius: 0px;}
 ytd-player > div{box-sizing: border-box; border: 5px solid blue;}
-ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}*/
+ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}
+*/
 
 .html5-video-container{ width: 100%; height: fit-content;}
 
