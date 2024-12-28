@@ -5,11 +5,15 @@ Use with Youtube Enhancer Extension: https://addons.mozilla.org/en-US/firefox/ad
 
 It is recommended to import the enhancer config provided from **youtube-enhancer.txt**, copy raw, and and paste in the pop up that appears when clicking import at the bottom of the extensions settings page.
 
-Then copy raw from **YT.ccs** and paste it under 'custom theme' in the extension settings page.
+Then copy raw from **YT.css** and paste it under 'custom theme' in the extension settings page.
 
-## Project Roadmap
+## Project Status
 ### main player page
   - [complete] shorts section
   - [WIP] recommended list
+  - [WIP] comment section
+  - [WIP] main player
+  - [planned] playlists
+  - [planned] ads (you really should using an ad blocker though)
 ### homepage
   - [planned] remove some sections
