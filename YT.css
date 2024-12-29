@@ -1,37 +1,38 @@
 :root{
   /* some of these variables dont do anything at all as of yet and some are only partially implemented.
      please remember this project is still early in development */
+
   
-  /* general layout settings */
+/* general settings */
+/* color settings */
+  --highcol: #ee0000;
+  --highcol-dark: #401010;
+  --highcol-transp: rgba(255, 0, 0, 0.5);
+  --background-color: #202020;
+  --item-padding: 8px;
+  --item-margin: 0px;
+  --item-background-color: transparent;
+  --item-background-color-hover: var(--highcol-dark);
+  --item-border: 1px solid transparent;
+  --item-border-hover: 1px solid #ff8080;
+/* layout settings */
   --roundedness: 12px;
   --button-roundedness: 8px; /* recommended range: 0px - 20px */
   --borders-widths: 16px;
   --space-below-main-player: 32px;
   --spacings-gaps: 4px;
-
-  /* general text settings */
+/* text settings */
   --text-primary: #aaaaaa;
   --text-primary-hover: #ffffff;
   --text-secondary: #666666;
   --text-secondary-hover: #888888;
-
-  /* general color variables */
-  --highcol: #ee0000;
-  --highcol-dark: #401010;
-  --highcol-transp: rgba(255, 0, 0, 0.5);
-  --background-color: #202020;
-  --item-background-color: transparent;
-  --item-background-color-hover: var(--highcol-dark);
-  --item-padding: 8px;
-  --item-border: 1px solid transparent;
-  --item-border-hover: 1px solid #ff8080;
-
-  /* transitions durations */
+/* animation settings */
   --trans-time-short: 0.1s; /* recommended range: 0.02s - 0.2s */
   --trans-time-medium: 0.3s;
   --trans-time-long: 0.5s;
 
-  /* comment section settings */
+/* specific settings */
+/* comment section settings */
   --comments-spacing: 12px;
   --comments-padding: 16px;
   --comments-margin: 0px;
@@ -39,8 +40,16 @@
   --comments-background-color-hover: var(--item-background-color-hover);
   --comments-border: var(--item-border);
   --comments-border-hover: var(--item-border-hover);
-
-  /* dont change these */
+/* related videos section settings */
+  --related-video-spacing: 12px;
+  --related-video-padding: 8px;
+  --related-video-margin: 0px;
+  --related-video-background-color: var(--item-background-color);
+  --related-video-background-color-hover: var(--item-background-color-hover);
+  --related-video-border: var(--item-border);
+  --related-video-border-hover: var(--item-border-hover);
+  
+/* not settings do not change these */
   --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
   --trans-type-slick-reverse: cubic-bezier(.5,0,.2,1);
   --trans-type-smooth-end: cubic-bezier(.5,1,.5,1);
@@ -84,13 +93,13 @@ body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--r
 
 
   /* item section */
-#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer{background-color: var(--item-background-color); border: var(--item-border); padding: var(--item-padding); border-radius: var(--roundedness);}
+#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer{background-color: var(--related-video-background-color); border: var(--related-video-border); padding: var(--related-video-padding); border-radius: var(--roundedness);}
 
-#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer:hover{background-color: var(--item-background-color-hover); border: var(--item-border-hover);}
+#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer:hover{background-color: var(--related-video-background-color-hover); border: var(--related-video-border-hover);}
 
 ytd-compact-video-renderer h3 > span{font-size: 8px;}
 
-ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness) - var(--item-padding));}
+ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness) - var(--related-video-padding));}
 
 
   /* shorts sections:
