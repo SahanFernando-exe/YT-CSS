@@ -7,6 +7,8 @@ It is recommended to import the enhancer config provided from **youtube-enhancer
 
 Then copy raw from **YT.css** and paste it under 'custom theme' in the extension settings page.
 
+Finally tweek the general and specific settings inside 'root' to get the style you desire
+
 ## Project Status
 ### main player page
   - [complete] shorts section
