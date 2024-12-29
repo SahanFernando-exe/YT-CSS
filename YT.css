@@ -90,7 +90,7 @@ body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--r
 
 ytd-compact-video-renderer h3 > span{font-size: 8px;}
 
-ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness)-var(--item-padding));}
+ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness) - var(--item-padding));}
 
 
   /* shorts sections:
