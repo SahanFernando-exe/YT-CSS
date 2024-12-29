@@ -229,7 +229,7 @@ ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}
 
 video{width: 100% !important; height: auto !important;}
 
-#progress{background-image:none; background-color: var(--highcol);}
+#progress{background-image:none !important; background-color: var(--highcol) !important;}
 
 ytd-ad-slot-renderer{display: none;}
 #player-ads{display: none;}
