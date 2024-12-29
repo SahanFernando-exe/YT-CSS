@@ -1,5 +1,5 @@
 :root{
-  /* some of these variables dont do anything at all as of yet and some are only partially implemented.
+  /* some of these variables don't do anything at all as of yet and some are only partially implemented.
      please remember this project is still early in development */
 
   
@@ -33,7 +33,7 @@
 
 /* specific settings */
 /* comment section settings */
-  --comments-spacing: 12px;
+  --comments-spacing: 4px;
   --comments-padding: 16px;
   --comments-margin: 0px;
   --comments-background-color: var(--item-background-color);
@@ -41,7 +41,7 @@
   --comments-border: var(--item-border);
   --comments-border-hover: var(--item-border-hover);
 /* related videos section settings */
-  --related-video-spacing: 12px;
+  --related-video-spacing: 4px;
   --related-video-padding: 8px;
   --related-video-margin: 0px;
   --related-video-background-color: var(--item-background-color);
@@ -93,9 +93,11 @@ body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--r
 
 
   /* item section */
-#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer{background-color: var(--related-video-background-color); border: var(--related-video-border); padding: var(--related-video-padding); border-radius: var(--roundedness);}
+#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer{background-color: var(--related-video-background-color); border: var(--related-video-border); padding: var(--related-video-padding); border-radius: var(--roundedness); margin: var(--related-video-margin); margin-top: var(--related-video-spacing);}
 
 #related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer:hover{background-color: var(--related-video-background-color-hover); border: var(--related-video-border-hover);}
+
+ytd-compact-video-renderer ytd-menu-renderer{transform: translate(calc(-1 * var(--related-video-padding)), calc(var(--related-video-padding) + 5px));}
 
 ytd-compact-video-renderer h3 > span{font-size: 8px;}
 
@@ -203,7 +205,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 /* Comments section */
 ytd-comment-thread-renderer
 { transition: var(--trans-time-short);
-  margin: 0 var(--comments-margin);
+  margin: var(--comments-margin);
   margin-top: var(--comments-spacing);
   padding: var(--comments-padding);
   border: var(--comments-border);
@@ -217,7 +219,8 @@ ytd-comment-thread-renderer:hover
   
 ytd-comment-thread-renderer > #comment > #body > #action-menu
 { transition: var(--trans-time-short);
-  opacity: 0; width: 20px;
+  opacity: 0;
+  width: 20px;
   margin: 0 0 0 20px;}
   
 ytd-comment-thread-renderer:hover #comment #body > #action-menu
