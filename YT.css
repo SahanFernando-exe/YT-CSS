@@ -1,5 +1,5 @@
 :root{
-  /* some of these variables don't do anything at all as of yet and some are only partially implemented.
+  /* some of these variables dont do anything at all as of yet and some are only partially implemented.
      please remember this project is still early in development */
 
   
@@ -97,9 +97,9 @@ body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--r
 
 #related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer:hover{background-color: var(--related-video-background-color-hover); border: var(--related-video-border-hover);}
 
-ytd-compact-video-renderer ytd-menu-renderer{transform: translate(calc(-1 * var(--related-video-padding)), calc(var(--related-video-padding) + 5px));}
-
 ytd-compact-video-renderer h3 > span{font-size: 8px;}
+
+ytd-compact-video-renderer ytd-menu-renderer{transform: translate(calc(-1 * var(--related-video-padding)), calc(var(--related-video-padding) + 5px));}
 
 ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness) - var(--related-video-padding));}
 
@@ -239,7 +239,7 @@ ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}
 
 .html5-video-container{ width: 100%; height: fit-content;}
 
-video{width: 100% !important; height: auto !important;}
+video{width: 100% !important; height: auto !important; left: auto !important}
 
 #progress{background-image:none !important; background-color: var(--highcol) !important;}
 
