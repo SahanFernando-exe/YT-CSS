@@ -81,7 +81,10 @@ ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy{ padding-right: 0px;}
 ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy {border-radius: 0px;}
 ytd-player > div > div{ border-radius: var(--roundedness);}
 
-body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--roundedness) !important;} /* not working due to extension */
+body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--roundedness) !important;}
+
+body.efyt-mini-player._top-left #movie_player:not(.ytp-fullscreen){top: 60px !important;} /* need both due to enhancer version difference  (gives space for yt logo) */
+body.efyt-mini-player.efyt-mini-player-top-left #movie_player:not(.ytp-fullscreen){top: 60px !important;}
 
 /* secondary column */
   /* related buttons */
