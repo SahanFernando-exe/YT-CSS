@@ -242,7 +242,7 @@ ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}
 
 .html5-video-container{ width: 100%; height: fit-content;}
 
-video{width: 100% !important; height: auto !important; left: auto !important}
+video{object-fit: contain !important; width: 100% !important; height: auto !important; max-height: 80vh !important; left: auto !important}
 
 #progress{background-image:none !important; background-color: var(--highcol) !important;}
 
