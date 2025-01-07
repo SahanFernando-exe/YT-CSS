@@ -88,11 +88,13 @@ body.efyt-mini-player.efyt-mini-player-top-left #movie_player:not(.ytp-fullscree
 
 /* secondary column */
   /* related buttons */
-#related > ytd-watch-next-secondary-results-renderer > #items > yt-related-chip-cloud-renderer > #content #container > #scroll-container > #chips{display: flex; flex-wrap: wrap; margin: 0;}
+#chips{display: flex !important; flex-wrap: wrap; margin: 0;}
 
-#related > ytd-watch-next-secondary-results-renderer > #items > yt-related-chip-cloud-renderer > #content #container > #right-arrow{display: none;}
+yt-related-chip-cloud-renderer > #content #container > #right-arrow{display: none;}
 
-#related > ytd-watch-next-secondary-results-renderer > #items > yt-related-chip-cloud-renderer > #content #container > #scroll-container > #chips > *{flex-grow: 1; margin: 4px; padding: 4px 12px; justify-content: center; border-radius: var(--button-roundedness);}
+#chips > *{flex-grow: 1; margin: 4px;}
+
+#chips > * > *{padding: 4px 12px; width:100%; justify-content: center; border-radius: var(--button-roundedness);}
 
 
   /* item section */
