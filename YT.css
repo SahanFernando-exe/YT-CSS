@@ -4,20 +4,19 @@
   
 /* general settings */
 /* color settings */
-  --highcol: #ee0000;
-  --highcol-dark: #401010;
-  --highcol-transp: rgba(255, 0, 0, 0.5);
-  --app-background-color: #101010;
+  --primary-color: #e00 !important;
+  --secondary-color: #400;
+  --app-background-color: #111;
   --item-padding: 8px;
   --item-margin: 0px;
-  --item-background-color: transparent;
-  --item-background-color-hover: var(--highcol-dark);
-  --item-border: 1px solid transparent;
-  --item-border-hover: 1px solid #ff8080;
+  --item-background-color: none;
+  --item-background-color-hover: #222;
+  --item-border: none;
+  --item-border-hover: none;
 /* layout settings */
   --roundedness: 12px;
   --button-roundedness: 8px; /* recommended range: 0px - 20px */
-  --borders-widths: 16px;
+  --borders-widths: 12px;
   --space-below-main-player: 32px;
   --spacings-gaps: 4px;
 /* text settings */
@@ -31,6 +30,9 @@
   --trans-time-long: 0.5s;
 
 /* advanced settings */
+/* header settings */
+  --header-primary-color: 20, 20, 20;
+  --header-secondary-color: #8800ff;
 /* comment section settings */
   --comments-spacing: 4px;
   --comments-padding: 16px;
@@ -40,10 +42,10 @@
   --comments-border: var(--item-border);
   --comments-border-hover: var(--item-border-hover);
 /* related videos section settings */
-  --related-video-spacing: 4px;
-  --related-video-padding: 8px;
+  --related-video-spacing: 12px;
+  --related-video-padding: 4px;
   --related-video-margin: 0px;
-  --related-video-background-color: var(--item-background-color);
+  --related-video-background-color: none;
   --related-video-background-color-hover: var(--item-background-color-hover);
   --related-video-border: var(--item-border);
   --related-video-border-hover: var(--item-border-hover);
@@ -54,9 +56,23 @@
   --trans-type-smooth-end: cubic-bezier(.5,1,.5,1);
 }
 
-/* header */
+/* app */
 ytd-app{background: var(--app-background-color) !important;}
-#masthead-container{backdrop-filter: blur(8px); background: linear-gradient(0deg, #00000080, #00000020 50%, #00000080);  border-bottom: 1px solid white;}
+#columns {box-sizing: border-box; margin: 0 !important; width: 100%; max-width: 100% !important; padding: var(--borders-widths);}
+#columns > #primary {min-width: 0 !important; max-width: 100% !important; margin: 0; padding: var(--borders-widths);}
+#columns > #secondary {min-width: 400px; width: 30vw; max-width: 500px; padding: var(--borders-widths);}
+
+#player-container-outer { max-width: none !important;}
+
+/* header */
+#masthead-container{
+backdrop-filter: blur(32px);
+background: linear-gradient(0deg,
+  rgba(var(--header-primary-color), 1),
+  rgba(var(--header-primary-color), 0.6) 40%,
+  rgba(var(--header-primary-color), 0.6) 60%,
+  rgba(var(--header-primary-color), 1));
+border-bottom: 1px solid white;}
 #masthead-container #background{display: none}
 
 
@@ -65,10 +81,9 @@ ytd-app{background: var(--app-background-color) !important;}
 ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy {border-radius: 0px;}
 ytd-player > div > div{ border-radius: var(--roundedness);}
 
-body.efyt-mini-player #movie_player:not(.ytp-fullscreen) {border-radius: var(--roundedness) !important;}
+body.efyt-mini-player #container > #movie_player:not(.ytp-fullscreen) {border-radius: var(--roundedness) !important; top: 60px !important;}
 
-body.efyt-mini-player._top-left #movie_player:not(.ytp-fullscreen){top: 60px !important;} /* need both due to enhancer version difference  (gives space for yt logo) */
-body.efyt-mini-player.efyt-mini-player-top-left #movie_player:not(.ytp-fullscreen){top: 60px !important;}
+#player-container[style="touch-action: unset;"] > ytd-player > #container > #movie_player:not(.ytp-fullscreen){}
 
 .html5-video-container{width: 100%; height: 100%;}
 
@@ -76,7 +91,7 @@ video{object-fit: contain !important; width: 100% !important; height: 100% !impo
 
 
 /* - Comments section */
-ytd-comment-thread-renderer
+ytd-comments > ytd-item-section-renderer > #contents > * 
 { transition: var(--trans-time-short);
   margin: var(--comments-margin);
   margin-top: var(--comments-spacing);
@@ -85,7 +100,7 @@ ytd-comment-thread-renderer
   border-radius: var(--roundedness);
   background-color: var(--comments-background-color);}
 
-ytd-comment-thread-renderer:hover
+ytd-comments > ytd-item-section-renderer > #contents > *:hover
 { transition: var(--trans-time-medium) var(--trans-type-smooth-end);
   border: var(--comments-border-hover);
   background-color: var(--comments-background-color-hover);}
@@ -112,21 +127,28 @@ yt-related-chip-cloud-renderer > #content #container > #right-arrow{display: non
 #chips > * > *{padding: 4px 12px; width:100%; justify-content: center; border-radius: var(--button-roundedness);}
 
 /* -- item section */
-#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer
+#items > ytd-item-section-renderer > #contents{padding-top: 20px;}
+
+#items > ytd-item-section-renderer > #contents > * 
 { background-color: var(--related-video-background-color);
   border: var(--related-video-border);
   padding: var(--related-video-padding);
   border-radius: var(--roundedness);
   margin: var(--related-video-margin);
-  margin-top: var(--related-video-spacing);}
+  margin-bottom: var(--related-video-spacing);}
 
-#related > ytd-watch-next-secondary-results-renderer > #items > ytd-item-section-renderer > #contents > ytd-compact-video-renderer:hover
+#items > ytd-item-section-renderer > #contents > *:hover
 { background-color: var(--related-video-background-color-hover);
   border: var(--related-video-border-hover);}
 
-ytd-compact-video-renderer h3 > span{font-size: 8px;}
+#items > ytd-item-section-renderer > #contents > * .details
+{padding: 4px;}
+
+ytd-compact-video-renderer h3 > span{font-size: 16px !important;}
 
 ytd-compact-video-renderer ytd-menu-renderer{transform: translate(calc(-1 * var(--related-video-padding)), calc(var(--related-video-padding) + 5px));}
+
+ytd-compact-video-renderer ytd-thumbnail {width: 220px !important; height: 120px !important;}
 
 ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness) - var(--related-video-padding));}
 
@@ -137,12 +159,12 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
   margin-top: var(--spacings-gaps);
   padding-left: 2px;
   border: 0;
-  border-left: 2px solid var(--highcol);}
+  border-left: 2px solid var(--primary-color);}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer:hover
 { transition: var(--trans-time-short);
   padding-left: 0px;
-  border-left: 4px solid var(--highcol);}
+  border-left: 4px solid var(--primary-color);}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #title-container
@@ -176,14 +198,14 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
   padding: 0;
   padding-top: var(--spacings-gaps);
   margin: calc(0.5 * var(--spacings-gaps));
-  border-top: 0px solid var(--highcol);
+  border-top: 0px solid var(--primary-color);
   border-radius: 0px;}
   
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
 > ytm-shorts-lockup-view-model-v2:hover
 { transition: var(--trans-time-medium) var(--trans-type-smooth-end);
-  border-top: 4px solid var(--highcol);}
+  border-top: 4px solid var(--primary-color);}
 
 ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 > #contents > yt-horizontal-list-renderer > #scroll-outer-container > #scroll-container > #items
@@ -229,13 +251,19 @@ ytd-player > div{box-sizing: border-box; border: 5px solid blue;}
 ytd-player > div > div{box-sizing: border-box; border: 5px solid green;}
 */
 
-.ytp-play-progress{background: var(--highcol) !important;}
-#progress{background-image:none !important; background-color: var(--highcol) !important;}
+.ytp-play-progress{background: var(--primary-color) !important;}
+#progress{background-image:none !important; background-color: var(--primary-color) !important;}
 
 ytd-ad-slot-renderer{display: none;}
 #player-ads{display: none;}
 
 #cinematics-container{display: none;} /* removes blur-like effect around video */
 
-*{scrollbar-color: var(--highcol)  #fff !important;}
+*{scrollbar-color: var(--primary-color)  #fff !important;}
 html{scrollbar-color: #ff0  #fff !important; max-width: 100%; scrollbar-width: none !important;}
+
+#above-the-fold > #bottom-row > #description{background-color: transparent;}
+#above-the-fold > #bottom-row > #description > #description-inner{margin: 0 !important;}
+
+.ytp-chrome-bottom{width: 100% !important; left: 0 !important;}
+.ytp-chapter-hover-container{width: 100% !important;}
