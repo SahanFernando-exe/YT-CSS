@@ -104,7 +104,7 @@ ytd-player{height: auto;}
 
 ytd-player > #container{display: flex !important; height: auto !important;}
 
-#movie_player {height: auto !important; border-radius: var(--roundedness); border: 2px solid #222; position: sticky !important;}
+#movie_player {height: auto !important; border-radius: var(--roundedness); border: 2px solid #222; position: sticky !important; background: transparent !important;}
 
 #movie_player > .html5-video-container{ width: 100%; height: auto;}
 #movie_player.unstarted-mode > .html5-video-container{opacity: 0;}
