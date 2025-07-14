@@ -1,21 +1,46 @@
 # YT-CSS
 My Custom CSS overrides for theming Youtube.
 
-Use with Youtube Enhancer Extension: https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search.
+## Installation
+This project currently depends on the Youtube Enhancer Extension:
+firefox - https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/
+chromium - https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle
 
-It is recommended to import the enhancer config provided from **youtube-enhancer.txt**, copy raw, and and paste in the pop up that appears when clicking import at the bottom of the extensions settings page.
-
-Then copy raw from **YT.css** and paste it under 'custom theme' in the extension settings page.
+import the enhancer config provided from **youtube-enhancer-{your browser}.config**, copy and paste in the pop up that appears when clicking import at the bottom of the extensions settings page.
 
 Finally tweek the general and specific settings inside 'root' to get the style you desire
 
 ## Project Status
+(this will be moved into github issues and projects soon)
+#### project is currently being converted into a standalone browser extension.
+
 ### main player page
-  - [complete] shorts section
-  - [WIP] recommended list
-  - [WIP] comment section
-  - [WIP] main player
+  - [working] removed banner ads (does not affect ads in the player, use an ad blocker like ublock origin)
+
+#### player
+  - [working] minimized sticky player
+  - [WIP] stylizing
+  - [planned] hover tooltips
+  - [planned] better cinematics blackbars
+
+#### comments
+  - [complete] menu hidden
+  - [working] stylizing
+  - [planned] replies
+
+#### sidebar
+  - [working] recomended section
+  - [complete] shorts sections in recommended
   - [planned] playlists
-  - [planned] ads (you really should using an ad blocker though)
+  - [planned] chat replay
+  - [planned] other
+
 ### homepage
-  - [planned] remove some sections
+  - [working] classic layout modernised
+  - [WIP] filter chip stylization
+
+### browse page
+  - [WIP] stylization
+
+### channel page
+  - [planned] overhaul planned
