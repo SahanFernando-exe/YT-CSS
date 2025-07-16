@@ -7,7 +7,7 @@
   "host_permissions": ["https://www.youtube.com/*"],
 
   "action": {
-    "default_popup": "ext/popup/popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_title": "YouTube Theme -_-"
   },
 
@@ -15,8 +15,8 @@
     {
       "matches": ["https://www.youtube.com/*"],
       "js": [
-        "ext/lib/browser-polyfill.js",
-        "src/JS/entrypoint.js"
+        "src/lib/browser-polyfill.js",
+        "src/content/entrypoint.js"
       ],
       "run_at": "document_idle"
     }
@@ -25,12 +25,12 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "src/assets/*",
-        "src/css/*.css",
-        "src/js/*.js",
+        "modules/assets/*",
+        "modules/css/*.css",
+        "modules/js/*.js",
         "presets/*.json",
-        "ext/util/*.js",
-        "ext/system/config.json"
+        "src/util/*.js",
+        "src/system/config.json"
       ],
       "matches": ["https://www.youtube.com/*"]
     }

@@ -1,5 +1,5 @@
 export async function getPresetNames() {
-  const url = browser.runtime.getURL("ext/system/preset-index.json");
+  const url = browser.runtime.getURL("src/system/preset-index.json");
 
   try {
     const res = await fetch(url);

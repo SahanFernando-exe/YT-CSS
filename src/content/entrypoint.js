@@ -6,7 +6,7 @@ async function ensureStorageDefaults() {
   const data = await browser.storage.local.get(["enabled", "preset"]);
   if (data.enabled === undefined || data.preset === undefined) {
     console.log("reseting storage")
-    const defaultConfigUrl = browser.runtime.getURL("ext/system/config.json");
+    const defaultConfigUrl = browser.runtime.getURL("src/system/config.json");
     const res = await fetch(defaultConfigUrl);
     const defaults = await res.json();
     await browser.storage.local.set(defaults);
@@ -15,8 +15,8 @@ async function ensureStorageDefaults() {
 
 (async () => {
   // Import utils
-  const { applyPreset } = await import(browser.runtime.getURL("ext/util/apply-preset.js"));
-  const { getPresetData } = await import(browser.runtime.getURL("ext/util/get-preset-data.js"));
+  const { applyPreset } = await import(browser.runtime.getURL("src/util/apply-preset.js"));
+  const { getPresetData } = await import(browser.runtime.getURL("src/util/get-preset-data.js"));
 
   // Create browser storage config if not exist.
   await ensureStorageDefaults();

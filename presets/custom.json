@@ -3,7 +3,7 @@
         "hide_ads": false,
         "dynamic_player": {
             "enabled": true,
-            "dynamic_player_sticky": true
+            "sticky": true
         }
     },
     "variables": {

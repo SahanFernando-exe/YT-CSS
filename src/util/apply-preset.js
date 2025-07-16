@@ -25,7 +25,7 @@ function injectStyle(file) {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = browser.runtime.getURL(`src/css/${file}`);
+  link.href = browser.runtime.getURL(`modules/css/${file}`);
   link.id = id;
   document.head.appendChild(link);
   console.log("styles applied");
@@ -36,7 +36,7 @@ function injectScript(file) {
   if (document.getElementById(id)) return;
 
   const script = document.createElement("script");
-  script.src = browser.runtime.getURL(`src/js/${file}`);
+  script.src = browser.runtime.getURL(`modules/js/${file}`);
   script.setAttribute("data-extension-script", "true");
   script.id = id;
   script.defer = true; // optional: ensures it waits for DOM to be parsed
