@@ -1,6 +1,11 @@
 {
-    "hide_ads": true,
-    "dynamic player": true,
+    "features": {
+        "hide_ads": false,
+        "dynamic_player": {
+            "enabled": true,
+            "sticky": true
+        }
+    },
     "variables": {
         "--bg-buttons": "#333",
         "--bg-buttons-highlighted": "#ddd",
