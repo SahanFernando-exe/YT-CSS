@@ -65,6 +65,10 @@
   --related-video-background-color-hover: var(--item-background-color-hover);
   --related-video-border: var(--item-border);
   --related-video-border-hover: var(--item-border-hover);
+/* tags */
+  --tag-spacing: 8px;
+  --tag-container-padding: 8px;
+  --tag-related-padding: 8px;
   
 /* not settings do not change these */
   --trans-type-slick: cubic-bezier(0.8,0,0.5,1);
@@ -136,7 +140,7 @@ ytd-menu-renderer.ytd-rich-grid-media {right: -8px !important;}
 
 ytd-video-preview video{ min-height: 0;}
 
-#chips-wrapper {position: static !important; background-color: #202020a0 !important; backdrop-filter: blur(12px); border-radius: var(--roundedness); border: var(--border-style); padding: 12px;
+#chips-wrapper {position: static !important; background-color: #202020a0 !important; backdrop-filter: blur(12px); border-radius: var(--roundedness); border: var(--border-style); padding: var(--tag-container-padding);
 >#chips-content{padding:0;}}
 
 #inline-preview-player video{max-height: 100%; border-radius: var(--roundedness);}
@@ -221,26 +225,26 @@ ytd-playlist-panel-renderer {border: var(--border-style); border-radius: var(--r
 
 /* -- related buttons */
 yt-related-chip-cloud-renderer{
-  padding: var(--related-video-padding);
+  padding: var(--tag-related-padding);
   background: #222;
-> #content #container > #right-arrow{display: none;}}
+  #right-arrow{display: none;}}
 
-#chips{display: flex !important; flex-wrap: wrap; margin: 0; gap: 8px;
+#chips{display: flex !important; flex-wrap: wrap; margin: 0; gap: var(--tag-spacing);
 > * {flex-grow: 1; margin: 0; button{width: 100%; >*{width:100%; justify-content:center;}}}
 > * > *{width:100%; justify-content: center; border-radius: var(--button-roundedness);}}
 
 /* -- item section */
-#items > ytd-item-section-renderer > #contents > * 
+.lockup.ytd-item-section-renderer
 { background-color: var(--related-video-background-color);
   border: var(--related-video-border);
   padding: var(--related-video-spacing) var(--related-video-padding);
   margin: var(--related-video-margin);}
 
-#items > ytd-item-section-renderer > #contents > *:hover
+.lockup.ytd-item-section-renderer:hover
 { background-color: var(--related-video-background-color-hover);
   border: var(--related-video-border-hover);}
 
-#items > ytd-item-section-renderer > #contents > * .details
+.lockup.ytd-item-section-renderer .details
 {padding: 4px;}
 
 ytd-compact-video-renderer h3 > span{font-size: 16px !important;}
@@ -345,9 +349,6 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 
 .ytp-play-progress{background: var(--primary-color) !important;}
 #progress{background-image:none !important; background-color: var(--primary-color) !important;}
-
-ytd-ad-slot-renderer{display: none;}
-#player-ads{display: none;}
 
 #cinematics-container > div{overflow: hidden; border-radius: var(--roundedness);
    > div{aspect-ratio: auto !important;}}

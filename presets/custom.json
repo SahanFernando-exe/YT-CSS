@@ -1,0 +1,66 @@
+{
+    "hide_ads": false,
+    "variables": {
+        "--bg-buttons": "#333",
+        "--bg-buttons-highlighted": "#ddd",
+        "--primary-color": "#e00 !important",
+        "--secondary-color": "#400",
+        "--app-background-color": "#311",
+        "--roundedness": "12px",
+
+        "--item-padding": "8px",
+        "--item-margin": "0px",
+        "--item-background-color": "none",
+        "--item-background-color-hover": "#222",
+        "--item-border": "none",
+        "--item-border-hover": "none",
+
+        "--section-background": "#00000040",
+        "--button-roundedness": "8px",
+        "--border-style": "2px solid #444d",
+        "--borders-widths": "12px",
+        "--space-below-main-player": "32px",
+        "--spacings-gaps": "4px",
+
+        "--text-primary": "#aaaaaa",
+        "--text-primary-hover": "#ffffff",
+        "--text-secondary": "#666666",
+        "--text-secondary-hover": "#888888",
+        "--text-header": "#fff",
+        "--text-creator": "#888",
+        "--text-info": "#888",
+        "--text-links": "#22f",
+        "--text-names": "#ddd",
+        "--text-comment": "#ddd",
+        "--text-buttons": "#ddd",
+        "--text-buttons-highlighted": "#222",
+
+        "--trans-time-short": "0.1s",
+        "--trans-time-medium": "0.3s",
+        "--trans-time-long": "0.5s",
+
+        "--header-primary-color": "20, 20, 20",
+        "--header-secondary-color": "#8800ff",
+        "--header-height": "58px",
+
+        "--comments-spacing": "4px",
+        "--comments-padding": "16px",
+        "--comments-margin": "0px",
+        "--comments-background-color": "var(--item-background-color)",
+        "--comments-background-color-hover": "var(--item-background-color-hover)",
+        "--comments-border": "var(--item-border)",
+        "--comments-border-hover": "var(--item-border-hover)",
+
+        "--related-video-spacing": "8px",
+        "--related-video-padding": "12px",
+        "--related-video-margin": "0px",
+        "--related-video-background-color": "none",
+        "--related-video-background-color-hover": "var(--item-background-color-hover)",
+        "--related-video-border": "var(--item-border)",
+        "--related-video-border-hover": "var(--item-border-hover)",
+        
+        "--tag-spacing": "8px",
+        "--tag-container-padding": "8px",
+        "--tag-related-padding": "8px"
+	}
+}

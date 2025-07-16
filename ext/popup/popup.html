@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Presets</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="selectedPreset">
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="enableToggle" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="presetScroller">
+    <div id="presetContainer" class="preset-container"></div>
+  </div>
+
+  <div class="footer">
+  <input type="text" id="searchInput" placeholder="Search presets..."/>
+  <button class="newPreset">New Preset</button>
+  </div>
+
+  <script src="../lib/browser-polyfill.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
