@@ -25,9 +25,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "modules/assets/*",
-        "modules/css/*.css",
-        "modules/js/*.js",
+        "modules/*",
+        "modules/*/*",
         "presets/*.json",
         "src/util/*.js",
         "src/system/config.json"

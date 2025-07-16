@@ -167,7 +167,7 @@ body.efyt-mini-player #container > #movie_player:not(.ytp-fullscreen) {border-ra
 #full-bleed-container > #player-full-bleed-container{height: fit-content;}
 #full-bleed-container > #player-full-bleed-container > #player-container{height: fit-content; position: static;}
 
-#primary #player{position: sticky; z-index: 1000; top: calc(var(--borders-widths) *2);}
+#primary #player{z-index: 1000;}
 #primary #player-container-outer{max-width: none !important; min-width: 0 !important;}
 #primary #player-container-inner{padding: 0; height: auto;}
 #primary #player-container{position: static; height: auto;}

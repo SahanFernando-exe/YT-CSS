@@ -1,6 +1,6 @@
 {
     "features": {
-        "hide_ads": false,
+        "hide-ads": true,
         "dynamic_player": {
             "enabled": true,
             "sticky": true

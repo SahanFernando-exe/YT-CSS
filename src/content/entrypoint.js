@@ -25,7 +25,6 @@ async function ensureStorageDefaults() {
   if (enabled) {
     console.log("applying", preset);
     const presetData = await getPresetData(preset);
-    console.log(presetData);
     await applyPreset(presetData);
   };
 
