@@ -3,9 +3,8 @@
   "name": "YouTubeYou",
   "version": "1.0",
   "description": "A YouTube Overhaul.",
-  "permissions": ["scripting", "tabs", "storage", "activeTab"],
+  "permissions": ["tabs", "storage"],
   "host_permissions": ["https://www.youtube.com/*"],
-  "options_page": "ext/setting/settings.html",
 
   "action": {
     "default_popup": "ext/popup/popup.html",
@@ -16,17 +15,24 @@
     {
       "matches": ["https://www.youtube.com/*"],
       "js": [
-      "ext/lib/browser-polyfill.js",
-      "src/JS/entrypoint.js"
-    ],
+        "ext/lib/browser-polyfill.js",
+        "src/JS/entrypoint.js"
+      ],
       "run_at": "document_idle"
     }
   ],
 
   "web_accessible_resources": [
     {
-      "resources": ["src/assets/*", "src/CSS/*.css", "src/JS/*.js", "presets/*.json", "ext/util/*.js", "ext/system/config.json"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "src/assets/*",
+        "src/css/*.css",
+        "src/js/*.js",
+        "presets/*.json",
+        "ext/util/*.js",
+        "ext/system/config.json"
+      ],
+      "matches": ["https://www.youtube.com/*"]
     }
   ]
 }

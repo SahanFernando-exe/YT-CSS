@@ -1,5 +1,4 @@
 import { getPresetNames } from "../util/get-preset-names.js";
-import { changePreset } from "../util/change-preset.js";
 
 
 const enableToggle = document.getElementById("enableToggle");
@@ -15,7 +14,7 @@ async function initPopup() {
   allPresets = await getPresetNames();
   renderPresets(allPresets, preset);
 
-  if (allPresets.length > 1) {
+  if (allPresets.length > 6) {
     searchInput.style.visibility = "visible";
   }
 }
@@ -37,8 +36,14 @@ function renderPresets(list, selectedPreset) {
     card.dataset.name = name;
 
     card.addEventListener("click", async () => {
-      await changePreset(name);
+      await browser.storage.local.set({ preset: name });
       highlightActiveCard(name);
+
+      const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+      const ytTab = tabs.find(tab => tab.url.includes("youtube.com"));
+      if (ytTab?.id) {
+        await browser.tabs.reload(ytTab.id);
+      }
     });
 
     container.appendChild(card);

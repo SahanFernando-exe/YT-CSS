@@ -3,10 +3,10 @@
     "variables": {
         "--bg-buttons": "#333",
         "--bg-buttons-highlighted": "#ddd",
-        "--primary-color": "#e00 !important",
+        "--primary-color": "#0f0 !important",
         "--secondary-color": "#400",
         "--app-background-color": "#311",
-        "--roundedness": "12px",
+        "--roundedness": "24px",
 
         "--item-padding": "8px",
         "--item-margin": "0px",

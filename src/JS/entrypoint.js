@@ -1,8 +1,11 @@
 // entrypoint.js
+console.log("YTK - ENTRY");
 
 async function ensureStorageDefaults() {
+  console.log("checking storage");
   const data = await browser.storage.local.get(["enabled", "preset"]);
   if (data.enabled === undefined || data.preset === undefined) {
+    console.log("reseting storage")
     const defaultConfigUrl = browser.runtime.getURL("ext/system/config.json");
     const res = await fetch(defaultConfigUrl);
     const defaults = await res.json();
@@ -10,78 +13,20 @@ async function ensureStorageDefaults() {
   }
 }
 
-console.log("ENTRY");
-
 (async () => {
-  // ✅ Ensure defaults are set before using them
+  // Import utils
+  const { applyPreset } = await import(browser.runtime.getURL("ext/util/apply-preset.js"));
+  const { getPresetData } = await import(browser.runtime.getURL("ext/util/get-preset-data.js"));
+
+  // Create browser storage config if not exist.
   await ensureStorageDefaults();
 
   const { enabled, preset } = await browser.storage.local.get(["enabled", "preset"]);
-  if (!enabled) return;
+  if (enabled) {
+    console.log("applying", preset);
+    const presetData = await getPresetData(preset);
+    console.log(presetData);
+    await applyPreset(presetData);
+  };
 
-  console.log(preset);
-
-  // Load and apply preset logic (inject CSS modules)
-  const url = browser.runtime.getURL(`presets/${preset}.json`);
-  const res = await fetch(url);
-  const presetData = await res.json();
-
-  console.log(presetData);
-
-  // Dynamically inject CSS based on preset
-  await applyPreset(presetData);
-
-  // Add more dynamic logic if needed
 })();
-
-
-// apply-preset.json
-async function applyPreset(preset) {
-  // 🚫 DO NOT call browser.storage.set() here
-  // This function assumes the preset is already active
-
-  try {
-    // Example: conditionally inject styles
-    if (preset.hide_ads) {
-      injectStyle("hide-ads.css");
-    }
-
-    injectStyle("YT.css");
-    injectScript("YT.js");
-    applyVariables(preset.variables);
-
-  } catch (error) {
-    console.error("Error while applying preset logic:", error);
-  }
-}
-
-function injectStyle(file) {
-  const id = `YTK-style-${file}`;
-  if (document.getElementById(id)) return;
-
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = browser.runtime.getURL(`src/CSS/${file}`);
-  link.id = id;
-  document.head.appendChild(link);
-}
-
-function injectScript(file) {
-  const id = `YTK-script-${file}`;
-  if (document.getElementById(id)) return;
-
-  const script = document.createElement("script");
-  script.src = browser.runtime.getURL(`src/JS/${file}`);
-  script.setAttribute("data-extension-script", "true");
-  script.id = id;
-  script.defer = true; // optional: ensures it waits for DOM to be parsed
-  document.head.appendChild(script);
-}
-
-function applyVariables(vars = {}) {
-  console.log("var appplication in entry");
-  const root = document.documentElement;
-  for (const [key, value] of Object.entries(vars)) {
-    root.style.setProperty(key, value);
-  }
-}

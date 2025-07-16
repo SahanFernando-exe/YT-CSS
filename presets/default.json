@@ -1,5 +1,6 @@
 {
     "hide_ads": true,
+    "dynamic player": true,
     "variables": {
         "--bg-buttons": "#333",
         "--bg-buttons-highlighted": "#ddd",

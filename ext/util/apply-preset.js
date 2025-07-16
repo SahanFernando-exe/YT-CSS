@@ -12,6 +12,8 @@ export async function applyPreset(preset) {
     injectScript("YT.js");
     applyVariables(preset.variables);
 
+    console.log("PRESET", preset)
+
   } catch (error) {
     console.error("Error while applying preset logic:", error);
   }
@@ -23,9 +25,10 @@ function injectStyle(file) {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = browser.runtime.getURL(`src/CSS/${file}`);
+  link.href = browser.runtime.getURL(`src/css/${file}`);
   link.id = id;
   document.head.appendChild(link);
+  console.log("styles applied");
 }
 
 function injectScript(file) {
@@ -33,15 +36,16 @@ function injectScript(file) {
   if (document.getElementById(id)) return;
 
   const script = document.createElement("script");
-  script.src = browser.runtime.getURL(`src/JS/${file}`);
+  script.src = browser.runtime.getURL(`src/js/${file}`);
   script.setAttribute("data-extension-script", "true");
   script.id = id;
   script.defer = true; // optional: ensures it waits for DOM to be parsed
   document.head.appendChild(script);
+  console.log("scripts applied");
 }
 
 function applyVariables(vars = {}) {
-	console.log("var appplication in util");
+	console.log("variables applied", vars);
   const root = document.documentElement;
   for (const [key, value] of Object.entries(vars)) {
     root.style.setProperty(key, value);
