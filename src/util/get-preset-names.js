@@ -1,10 +1,11 @@
 export async function getPresetNames() {
-  const url = browser.runtime.getURL("src/system/preset-index.json");
-
   try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("Could not load preset list.");
-    return await res.json();
+    const data = await browser.storage.local.get("presets");
+    const names = [];
+    for (const [key, value] of Object.entries(data.presets)) {
+      names.push(key);
+    }
+    return names;
   } catch (err) {
     console.error("Error loading preset names:", err);
     return [];

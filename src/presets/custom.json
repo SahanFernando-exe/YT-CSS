@@ -1,9 +1,9 @@
 {
     "features": {
         "hide-ads": null,
-        "dynamic_player": {
+        "dynamic-player": {
             "enabled": true,
-            "sticky": true
+            "sticky": false
         }
     },
     "variables": {

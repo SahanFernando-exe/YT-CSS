@@ -5,10 +5,8 @@ export async function applyPreset(preset) {
     // adds preset to the window context
     injectPreset(preset.features);
 
-
     // apply features
     await applyFeatures(preset.features);
-
 
     injectStyle("modules/source/YT");
     injectScript("modules/source/YT");

@@ -5,9 +5,14 @@
   "description": "A YouTube Overhaul.",
   "permissions": ["tabs", "storage"],
   "host_permissions": ["https://www.youtube.com/*"],
+  
+  "background": {
+    "scripts": ["core/background.js"],
+    "service_worker": "core/background.js"
+  },
 
   "action": {
-    "default_popup": "src/popup/popup.html",
+    "default_popup": "ui/popup/popup.html",
     "default_title": "YouTube Theme -_-"
   },
 
@@ -15,8 +20,8 @@
     {
       "matches": ["https://www.youtube.com/*"],
       "js": [
-        "src/lib/browser-polyfill.js",
-        "src/content/entrypoint.js"
+        "lib/browser-polyfill.js",
+        "core/entrypoint.js"
       ],
       "run_at": "document_idle"
     }
@@ -28,8 +33,7 @@
         "modules/*",
         "modules/*/*",
         "presets/*.json",
-        "src/util/*.js",
-        "src/system/config.json"
+        "util/*.js"
       ],
       "matches": ["https://www.youtube.com/*"]
     }

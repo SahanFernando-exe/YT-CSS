@@ -1,10 +1,7 @@
 export async function getPresetData(name) {
-  const url = browser.runtime.getURL(`presets/${name}.json`);
-
   try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Preset "${name}" not found.`);
-    return await res.json();
+    const data = await browser.storage.local.get("presets");
+    return data.presets[name];
   } catch (err) {
     console.error(`Error loading preset "${name}":`, err);
     return null;

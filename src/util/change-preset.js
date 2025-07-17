@@ -15,7 +15,7 @@ export async function changePreset(name) {
 		await applyPreset(presetData);
 
     // Save as active preset
-    await browser.storage.local.set({ preset: name });
+    await browser.storage.local.set({ enabled: name });
 
 		// Log success
     console.log(`Preset "${name}" applied successfully.`);

@@ -1,4 +1,4 @@
-import { getPresetNames } from "../util/get-preset-names.js";
+import { getPresetNames } from "../../util/get-preset-names.js";
 
 
 const enableToggle = document.getElementById("enableToggle");
@@ -24,6 +24,7 @@ initPopup();
 // Toggle enable/disable
 enableToggle.addEventListener("change", () => {
   browser.storage.local.set({ enabled: enableToggle.checked });
+  reloadYT();
 });
 
 // Render preset cards
@@ -35,15 +36,11 @@ function renderPresets(list, selectedPreset) {
     card.textContent = name;
     card.dataset.name = name;
 
+    //card click
     card.addEventListener("click", async () => {
       await browser.storage.local.set({ preset: name });
       highlightActiveCard(name);
-
-      const tabs = await browser.tabs.query({ active: true, currentWindow: true });
-      const ytTab = tabs.find(tab => tab.url.includes("youtube.com"));
-      if (ytTab?.id) {
-        await browser.tabs.reload(ytTab.id);
-      }
+      reloadYT();
     });
 
     container.appendChild(card);
@@ -56,7 +53,7 @@ function highlightActiveCard(name) {
     c.classList.toggle("selected", c.dataset.name === name);
   });
 }
-console.log(allPresets);
+
 // Search filter
 searchInput.addEventListener("input", async () => {
   const query = searchInput.value.toLowerCase();
@@ -64,3 +61,12 @@ searchInput.addEventListener("input", async () => {
   const { preset: current } = await browser.storage.local.get("preset");
   renderPresets(filtered, current);
 });
+
+
+async function reloadYT() {
+  const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+  const ytTab = tabs.find(tab => tab.url.includes("youtube.com"));
+  if (ytTab?.id) {
+    await browser.tabs.reload(ytTab.id);
+  }
+}
