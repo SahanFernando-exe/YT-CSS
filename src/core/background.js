@@ -1,9 +1,8 @@
+import { resetStorage } from "../util/init.js";
+
 console.log("background js active");
+globalThis.storage ??= globalThis?.chrome?.storage || globalThis?.browser?.storage;
 
-(async () => {
-  // Import utils
-    const { resetStorage } = await import(browser.runtime.getURL("util/init.js"));
 
-    resetStorage();
 
-})();
+resetStorage();

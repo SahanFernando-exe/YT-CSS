@@ -8,7 +8,8 @@
   
   "background": {
     "scripts": ["core/background.js"],
-    "service_worker": "core/background.js"
+    "service_worker": "core/background.js",
+    "type": "module"
   },
 
   "action": {

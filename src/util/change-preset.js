@@ -1,6 +1,8 @@
 import { applyPreset } from "./apply-preset.js";
 import { getPresetData } from "./get-preset-data.js";
 
+globalThis.storage ??= globalThis?.chrome?.storage || globalThis?.browser?.storage;
+
 export async function changePreset(name) {
   try {
 		// Get preset
@@ -15,7 +17,7 @@ export async function changePreset(name) {
 		await applyPreset(presetData);
 
     // Save as active preset
-    await browser.storage.local.set({ enabled: name });
+    await storage.local.set({ preset: name });
 
 		// Log success
     console.log(`Preset "${name}" applied successfully.`);
