@@ -1,1 +1,1 @@
-#primary #player{top: calc(var(--borders-widths) *2); position: sticky;}
+#primary #player{top: calc(var(--section-spacing) *2); position: sticky;}

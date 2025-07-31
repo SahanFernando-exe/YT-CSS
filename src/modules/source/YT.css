@@ -11,19 +11,19 @@
 /* color settings */
   --primary-color: #e00 !important;
   --secondary-color: #400;
-  --app-background-color: #111;
+  --app-bg: #111;
   --item-padding: 8px;
   --item-margin: 0px;
   --item-background-color: none;
   --item-background-color-hover: #222;
   --item-border: none;
   --item-border-hover: none;
-  --section-background: #00000040;
+  --section-bg: #00000040;
 /* layout settings */
   --roundedness: 8px;
   --button-roundedness: 8px; /* recommended range: 0px - 20px */
   --border-style: 2px solid #444d;
-  --borders-widths: 12px;
+  --section-spacing: 12px;
   --space-below-main-player: 32px;
   --spacings-gaps: 4px;
 /* text settings */
@@ -58,9 +58,9 @@
   --comments-border: var(--item-border);
   --comments-border-hover: var(--item-border-hover);
 /* related videos section settings */
-  --related-video-spacing: 8px;
+  --related-item-padding: 8px;
   --related-video-padding: 12px;
-  --related-video-margin: 0px;
+  --related-item-spacing: 0px;
   --related-video-background-color: none;
   --related-video-background-color-hover: var(--item-background-color-hover);
   --related-video-border: var(--item-border);
@@ -88,14 +88,14 @@ ytd-page-manager { box-sizing: border-box;
 > ytd-search {overflow-y: scroll; ytd-search-header-renderer{height: auto; padding: 20px 0;}}
 > ytd-watch-flexy{ display: block; height: 100%; box-sizing: border-box;}}
 
-ytd-app{background: var(--app-background-color) !important;}
+ytd-app{background: var(--app-bg) !important;}
 
-#columns {box-sizing: border-box; margin: 0 !important; width: 100%; max-width: 100% !important; padding: var(--borders-widths);
-  > #primary {min-width: 0 !important; max-width: 100% !important; margin: 0; padding: var(--borders-widths);
+#columns {box-sizing: border-box; margin: 0 !important; width: 100%; max-width: 100% !important; padding: var(--section-spacing);
+  > #primary {min-width: 0 !important; max-width: 100% !important; margin: 0; padding: var(--section-spacing);
       > #primary-inner{height: 100%;}}
-  > #secondary {min-width: 450px; width: 30vw; max-width: 550px; padding: var(--borders-widths); margin: 0;
+  > #secondary {min-width: 450px; width: 30vw; max-width: 550px; padding: var(--section-spacing); margin: 0;
     > #secondary-inner
-      > #related {background: var(--section-background); overflow: hidden; box-sizing: border-box; border-radius: var(--roundedness); border: var(--border-style);}
+      > #related {background: var(--section-bg); overflow: hidden; box-sizing: border-box; border-radius: var(--roundedness); border: var(--border-style);}
   }
 }
 
@@ -126,7 +126,7 @@ ytd-browse {
 >#contents{ gap: 16px 16px; box-sizing: border-box; padding: 24px;
   >ytd-rich-section-renderer{display:none;}
   >ytd-rich-item-renderer{transition: padding 0.2s; margin: 0px; padding: 4px; width: 350px; flex-grow: 1; box-sizing: border-box;
-> #content{transition: filter 0.2s; background-color: #181818; border: 2px solid #222; border-radius: var(--roundedness); overflow: hidden; filter: grayscale(25%);
+> #content{transition: filter 0.2s; background: var(--section-bg); border: var(--border-style); border-radius: var(--roundedness); overflow: hidden; filter: grayscale(25%);
 #details{height: 120px;
 > #avatar-container{margin: 12px;}}}}}
 }
@@ -237,8 +237,9 @@ yt-related-chip-cloud-renderer{
 .lockup.ytd-item-section-renderer
 { background-color: var(--related-video-background-color);
   border: var(--related-video-border);
-  padding: var(--related-video-spacing) var(--related-video-padding);
-  margin: var(--related-video-margin);}
+  padding: var(--related-item-padding);
+  margin: 0px;
+  margin-bottom: var(--related-item-spacing);}
 
 .lockup.ytd-item-section-renderer:hover
 { background-color: var(--related-video-background-color-hover);
@@ -247,6 +248,9 @@ yt-related-chip-cloud-renderer{
 .lockup.ytd-item-section-renderer .details
 {padding: 4px;}
 
+
+
+
 ytd-compact-video-renderer h3 > span{font-size: 16px !important;}
 
 ytd-compact-video-renderer ytd-menu-renderer{transform: translate(calc(-1 * var(--related-video-padding)), calc(var(--related-video-padding) + 5px));}
@@ -254,6 +258,13 @@ ytd-compact-video-renderer ytd-menu-renderer{transform: translate(calc(-1 * var(
 ytd-compact-video-renderer ytd-thumbnail {width: 200px !important; height: 110px !important; border-radius: var(--roundedness); overflow: hidden;}
 
 ytd-thumbnail > #thumbnail{border-radius: calc(var(--roundedness) - var(--related-video-padding));}
+
+
+
+
+
+
+
 
 
 /* - shorts sections  */

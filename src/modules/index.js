@@ -1,15 +1,21 @@
 export default {
-    "hide-ads": {
-        "styles": ["hide-ads/hide-ads.css"]
-    },
+  "hide-ads": {
+    "styles": ["hide-ads/hide-ads.css"]
+  },
 
-    "dynamic-player": {
-        "scripts": ["dynamic-player/dynamic-player.js"],
-        "util": ["util/dom-utils.js", "util/scroll-utils.js", "util/video-utils.js"],
-        "sub": {
-            "sticky": {
-                "styles": ["dynamic-player/sticky.css"]
-            }
-        }
+  "related-section": {
+    "remove-extras": {
+      "styles" : ["related-section/remove-extras.css"],
+      "keep-shorts": {
+        "styles" : ["related-section/keep-shorts.css"]
+      }
     }
+  },
+
+  "dynamic-player": {
+    "scripts": ["dynamic-player/dynamic-player.js"],
+    "sticky": {
+      "styles": ["dynamic-player/sticky.css"]
+    }
+  }
 }

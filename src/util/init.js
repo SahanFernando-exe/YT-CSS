@@ -10,7 +10,7 @@ export async function resetStorage() {
 	if (data.presets === undefined) {
     	console.log("reseting presets")
     	const presets = {};
-    	const presetNames = ["default", "custom"]
+    	const presetNames = ["default", "custom", "custom 2"]
     	for (const name of presetNames) {
     		const url = getURL(`presets/${name}.json`);
     		const res = await fetch(url);

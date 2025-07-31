@@ -10,7 +10,7 @@ export async function applyPreset(preset) {
 
 
     injectStyle("source/YT.css");
-    
+
     // apply features
     await applyFeatures(preset.features, index);
 
@@ -35,31 +35,36 @@ function injectPreset(config) {
 
 
 async function applyFeatures(features, index) {
-  for (const [featureKey, featureValue] of Object.entries(features)) {
-    if (!featureValue.enabled) continue;
+  console.log("apply:  ", features, index)
+  try{
+    for (const [featureKey, featureValue] of Object.entries(features)) {
+      if (!featureValue.enabled) continue;
 
-    const indexEntry = index[featureKey];
-    if (!indexEntry) {
-      console.error(`Feature "${featureKey}" not found in index`);
-      continue;
+      const indexEntry = index[featureKey];
+      if (!indexEntry) {
+        console.error(`Feature "${featureKey}" not found in index`);
+        continue;
+      }
+
+      // Inject top-level styles/scripts
+      if (indexEntry.styles) {
+        for (const style of indexEntry.styles) injectStyle(style);
+      }
+
+      if (indexEntry.scripts) {
+        for (const script of indexEntry.scripts) loadScript(script);
+      }
+
+      // Recurse into subfeatures
+      console.log("kshjabshjbdjkfdbscv", featureKey, features)
+      if (features[featureKey].sub) {
+        console.log("recurse", features[featureKey].sub, indexEntry)
+        await applyFeatures(features[featureKey].sub, indexEntry);
+      }
     }
 
-    // Inject top-level styles/scripts
-    if (indexEntry.styles) {
-      for (const style of indexEntry.styles) injectStyle(style);
-    }
-
-    if (indexEntry.scripts) {
-      for (const script of indexEntry.scripts) loadScript(script);
-    }
-
-    // Recurse into subfeatures
-    if (featureValue.sub && indexEntry.sub) {
-      await applyFeatures(featureValue.sub, indexEntry.sub);
-    }
-    else if (featureValue.sub || indexEntry.sub){
-      console.error("preset - index mismatch", featureKey, featureValue, indexEntry)
-    }
+  } catch {
+    console.error("preset - index mismatch", featureKey, featureValue, indexEntry)
   }
 }
 

@@ -3,6 +3,19 @@
         "hide-ads": {
             "enabled": true
         },
+        "related-section": {
+            "enabled": true,
+            "sub": {
+                "remove-extras": {
+                    "enabled": true,
+                    "sub": {
+                        "keep-shorts": {
+                            "enabled": true
+                        }
+                    }
+                }
+            }
+        },
         "dynamic-player": {
             "enabled": true,
             "sub": {
@@ -18,7 +31,7 @@
         "--bg-buttons-highlighted": "#ddd",
         "--primary-color": "#e00 !important",
         "--secondary-color": "#400",
-        "--app-background-color": "#111",
+        "--app-bg": "#111",
         "--roundedness": "8px",
 
         "--item-padding": "8px",
@@ -28,10 +41,10 @@
         "--item-border": "none",
         "--item-border-hover": "none",
 
-        "--section-background": "#00000040",
+        "--section-bg": "#00000040",
         "--button-roundedness": "8px",
         "--border-style": "2px solid #444d",
-        "--borders-widths": "12px",
+        "--section-spacing": "12px",
         "--space-below-main-player": "32px",
         "--spacings-gaps": "4px",
 
@@ -64,9 +77,9 @@
         "--comments-border": "var(--item-border)",
         "--comments-border-hover": "var(--item-border-hover)",
 
-        "--related-video-spacing": "8px",
+        "--related-item-padding": "8px",
         "--related-video-padding": "12px",
-        "--related-video-margin": "0px",
+        "--related-item-spacing": "0px",
         "--related-video-background-color": "none",
         "--related-video-background-color-hover": "var(--item-background-color-hover)",
         "--related-video-border": "var(--item-border)",
