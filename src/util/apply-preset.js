@@ -1,3 +1,6 @@
+import index from "../modules/index.js";
+
+
 export async function applyPreset(preset) {
   // This function assumes the preset is already active
 
@@ -5,11 +8,13 @@ export async function applyPreset(preset) {
     // adds preset to the window context
     injectPreset(preset.features);
 
-    // apply features
-    await applyFeatures(preset.features);
 
-    injectStyle("modules/source/YT");
-    injectScript("modules/source/YT");
+    injectStyle("source/YT.css");
+    
+    // apply features
+    await applyFeatures(preset.features, index);
+
+    //injectScript("source/YT.js");
     applyVariables(preset.variables);
 
     console.log("PRESET", preset)
@@ -19,6 +24,7 @@ export async function applyPreset(preset) {
   }
 }
 
+
 function injectPreset(config) {
   const script = document.createElement("script");
   script.textContent = `window.YTK_CONFIG = ${JSON.stringify(config)};`;
@@ -27,26 +33,36 @@ function injectPreset(config) {
   script.remove();
 }
 
-async function applyFeatures(features, dir = "modules") {
-  for (const [key, value] of Object.entries(features)) {
-    const path = `${dir}/${key}`;
 
-    // if feature exists and not set to false
-    if (value) {
-      if (key == "enabled" && value == false) continue;
-      // if feature has subfeatures recurse
-      if(typeof value === "object" && value.enabled) {
-        applyFeatures(value, path)
-      }
-      // skip if null
-      if (value === null || value === undefined) continue;
-      
-      // apply feature
-      injectStyle(`${path}/${key}`);
-      injectScript(`${path}/${key}`);
+async function applyFeatures(features, index) {
+  for (const [featureKey, featureValue] of Object.entries(features)) {
+    if (!featureValue.enabled) continue;
+
+    const indexEntry = index[featureKey];
+    if (!indexEntry) {
+      console.error(`Feature "${featureKey}" not found in index`);
+      continue;
+    }
+
+    // Inject top-level styles/scripts
+    if (indexEntry.styles) {
+      for (const style of indexEntry.styles) injectStyle(style);
+    }
+
+    if (indexEntry.scripts) {
+      for (const script of indexEntry.scripts) loadScript(script);
+    }
+
+    // Recurse into subfeatures
+    if (featureValue.sub && indexEntry.sub) {
+      await applyFeatures(featureValue.sub, indexEntry.sub);
+    }
+    else if (featureValue.sub || indexEntry.sub){
+      console.error("preset - index mismatch", featureKey, featureValue, indexEntry)
     }
   }
 }
+
 
 function injectStyle(file) {
   const id = `YTK-style-${file}`;
@@ -57,7 +73,7 @@ function injectStyle(file) {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = browser.runtime.getURL(`${file}.css`);
+  link.href = browser.runtime.getURL(`modules/${file}`);
   link.id = id;
   link.onload = () => {
     console.log("loaded CSS:", id);
@@ -66,24 +82,38 @@ function injectStyle(file) {
   console.log("created style:", id);
 }
 
+
 function injectScript(file) {
   const id = `YTK-script-${file}`;
   if (document.getElementById(id)) {
-    console.log("aborted JS inject:", id);
+    console.warn("aborted JS inject:", id);
     return;
   }
 
   const script = document.createElement("script");
-  script.src = browser.runtime.getURL(`${file}.js`);
+  script.src = browser.runtime.getURL(`modules/${file}`);
   script.setAttribute("data-extension-script", "true");
   script.id = id;
   script.defer = true;
+  script.type = "module";
   script.onload = () => {
     console.log("loaded JS:", id);
   };
   document.head.appendChild(script);
   console.log("created script:", id);
 }
+
+async function loadScript(file) {
+  try {
+  const { script } = await import(browser.runtime.getURL(`modules/${file}`));
+  console.log(`loaded script ${file}`);
+  script();
+  }
+  catch (error) {
+    console.error(`could not load script: ${file}, ran into error:`, error);
+  }
+}
+
 
 function applyVariables(vars = {}) {
   const root = document.documentElement;

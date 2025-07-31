@@ -1,9 +1,16 @@
 {
     "features": {
-        "hide-ads": true,
+        "hide-ads": {
+            "enabled": true
+        },
         "dynamic-player": {
             "enabled": true,
-            "sticky": true
+            "sub": {
+                "sticky": {
+                    "enabled": true
+                }
+            },
+            "min-height": "200px"
         }
     },
     "variables": {
