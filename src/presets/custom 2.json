@@ -29,8 +29,9 @@
     "variables": {
         "--bg-buttons": "#333",
         "--bg-buttons-highlighted": "#ddd",
-        "--primary-color": "#0f0 !important",
+        "--primary-color": "#f48",
         "--secondary-color": "#400",
+        "--tint-transparent": "#4484",
         "--app-bg": "#112",
         "--roundedness": "4px",
 

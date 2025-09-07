@@ -37,6 +37,14 @@
         "util/*.js"
       ],
       "matches": ["https://www.youtube.com/*"]
+    },
+    {
+      "resources":[
+        "ui/*",
+        "presets/*.json",
+        "system/*.js"
+      ],
+      "matches": ["<all_urls>"]
     }
   ]
 }

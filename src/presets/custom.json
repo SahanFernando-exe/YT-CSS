@@ -29,12 +29,13 @@
     "variables": {
         "--bg-buttons": "#333",
         "--bg-buttons-highlighted": "#ddd",
-        "--primary-color": "#0f0 !important",
+        "--primary-color": "#f00",
         "--secondary-color": "#400",
-        "--app-bg": "#311",
+        "--tint-transparent": "#8444",
+        "--app-bg": "#211",
         "--roundedness": "24px",
 
-        "--item-padding": "8px",
+        "--item-padding": "16px",
         "--item-margin": "0px",
         "--item-background-color": "none",
         "--item-background-color-hover": "#222",
@@ -43,7 +44,7 @@
 
         "--section-bg": "#00000040",
         "--button-roundedness": "8px",
-        "--border-style": "2px solid #444d",
+        "--border-style": "1px solid #aaa",
         "--section-spacing": "12px",
         "--space-below-main-player": "32px",
         "--spacings-gaps": "4px",

@@ -40,7 +40,7 @@ window.addEventListener('wheel', function(e) {
     console.log(scrollPosition, e.deltaY)
 
     //if (isEventInScrollableContainer(e)) return;
-    if (maxHeight === 0) {
+    if (maxHeight === 0 || e.deltaY <= 0 && DOMelements.video.clientHeight === maxHeight) {
         maxHeight = videoRedemension(DOMelements.video)
     }
 

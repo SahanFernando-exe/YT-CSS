@@ -1,92 +1,123 @@
 {
-    "features": {
-        "hide-ads": {
-            "enabled": true
-        },
-        "related-section": {
+  "features": {
+    "enabled": true,
+    "subsettings": {
+      "hide-ads": {
+        "enabled": true,
+        "value": true
+      },
+      "related-section": {
+        "enabled": true,
+        "subsettings": {
+          "remove-extras": {
             "enabled": true,
-            "sub": {
-                "remove-extras": {
-                    "enabled": true,
-                    "sub": {
-                        "keep-shorts": {
-                            "enabled": true
-                        }
-                    }
-                }
+						"value": true,
+            "subsettings": {
+              "keep-shorts": {
+                "enabled": true,
+								"value": true
+              }
             }
-        },
-        "dynamic-player": {
+          },
+					"width-type": {
+						"enabled": true,
+						"value": "constant",
+						"subsettings": {
+							"constant.width": {
+								"enabled": true,
+								"value": "350px"
+							},
+							"dynamic.min-width": {
+								"enabled": true,
+								"value": "200px"
+							},
+							"dynamic.max-width": {
+								"enabled": true,
+								"value": "400px"
+							}
+						}
+        	}
+				}
+      },
+      "dynamic-player": {
+        "enabled": true,
+				"value": true,
+        "subsettings": {
+					"min-height": {
+						"enabled": true,
+						"value": "200px"
+					},
+          "sticky": {
             "enabled": true,
-            "sub": {
-                "sticky": {
-                    "enabled": true
-                }
-            },
-            "min-height": "200px"
+						"value": true
+          }
         }
-    },
-    "variables": {
-        "--bg-buttons": "#333",
-        "--bg-buttons-highlighted": "#ddd",
-        "--primary-color": "#e00 !important",
-        "--secondary-color": "#400",
-        "--app-bg": "#111",
-        "--roundedness": "8px",
+      }
+    }
+  },
 
-        "--item-padding": "8px",
-        "--item-margin": "0px",
-        "--item-background-color": "none",
-        "--item-background-color-hover": "#222",
-        "--item-border": "none",
-        "--item-border-hover": "none",
+  "variables": {
+    "--bg-buttons": "#333",
+    "--bg-buttons-highlighted": "#ddd",
+    "--primary-color": "#e00",
+    "--secondary-color": "#400",
+    "--tint-transparent": "#2224",
+    "--app-bg": "#111",
+    "--roundedness": "8px",
 
-        "--section-bg": "#00000040",
-        "--button-roundedness": "8px",
-        "--border-style": "2px solid #444d",
-        "--section-spacing": "12px",
-        "--space-below-main-player": "32px",
-        "--spacings-gaps": "4px",
+    "--item-padding": "8px",
+    "--item-margin": "0px",
+    "--item-background-color": "none",
+    "--item-background-color-hover": "#222",
+    "--item-border": "none",
+    "--item-border-hover": "none",
 
-        "--text-primary": "#aaaaaa",
-        "--text-primary-hover": "#ffffff",
-        "--text-secondary": "#666666",
-        "--text-secondary-hover": "#888888",
-        "--text-header": "#fff",
-        "--text-creator": "#888",
-        "--text-info": "#888",
-        "--text-links": "#22f",
-        "--text-names": "#ddd",
-        "--text-comment": "#ddd",
-        "--text-buttons": "#ddd",
-        "--text-buttons-highlighted": "#222",
+    "--section-bg": "#00000040",
+    "--button-roundedness": "8px",
+    "--border-style": "2px solid #444d",
+    "--section-spacing": "12px",
+    "--space-below-main-player": "32px",
+    "--spacings-gaps": "4px",
 
-        "--trans-time-short": "0.1s",
-        "--trans-time-medium": "0.3s",
-        "--trans-time-long": "0.5s",
+    "--text-primary": "#aaaaaa",
+    "--text-primary-hover": "#ffffff",
+    "--text-secondary": "#666666",
+    "--text-secondary-hover": "#888888",
+    "--text-header": "#fff",
+    "--text-creator": "#888",
+    "--text-info": "#888",
+    "--text-links": "#22f",
+    "--text-names": "#ddd",
+    "--text-comment": "#ddd",
+    "--text-buttons": "#ddd",
+    "--text-buttons-highlighted": "#222",
 
-        "--header-primary-color": "20, 20, 20",
-        "--header-secondary-color": "#8800ff",
-        "--header-height": "58px",
+    "--trans-time-short": "0.1s",
+    "--trans-time-medium": "0.3s",
+    "--trans-time-long": "0.5s",
 
-        "--comments-spacing": "4px",
-        "--comments-padding": "16px",
-        "--comments-margin": "0px",
-        "--comments-background-color": "var(--item-background-color)",
-        "--comments-background-color-hover": "var(--item-background-color-hover)",
-        "--comments-border": "var(--item-border)",
-        "--comments-border-hover": "var(--item-border-hover)",
+    "--header-primary-color": "20, 20, 20",
+    "--header-secondary-color": "#8800ff",
+    "--header-height": "58px",
 
-        "--related-item-padding": "8px",
-        "--related-video-padding": "12px",
-        "--related-item-spacing": "0px",
-        "--related-video-background-color": "none",
-        "--related-video-background-color-hover": "var(--item-background-color-hover)",
-        "--related-video-border": "var(--item-border)",
-        "--related-video-border-hover": "var(--item-border-hover)",
-        
-        "--tag-spacing": "8px",
-        "--tag-container-padding": "8px",
-        "--tag-related-padding": "8px"
+    "--comments-spacing": "4px",
+    "--comments-padding": "16px",
+    "--comments-margin": "0px",
+    "--comments-background-color": "var(--item-background-color)",
+    "--comments-background-color-hover": "var(--item-background-color-hover)",
+    "--comments-border": "var(--item-border)",
+    "--comments-border-hover": "var(--item-border-hover)",
+
+    "--related-item-padding": "8px",
+    "--related-video-padding": "12px",
+    "--related-item-spacing": "0px",
+    "--related-video-background-color": "none",
+    "--related-video-background-color-hover": "var(--item-background-color-hover)",
+    "--related-video-border": "var(--item-border)",
+    "--related-video-border-hover": "var(--item-border-hover)",
+    
+    "--tag-spacing": "8px",
+    "--tag-container-padding": "8px",
+    "--tag-related-padding": "8px"
 	}
 }

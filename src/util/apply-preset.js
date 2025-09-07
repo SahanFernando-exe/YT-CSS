@@ -38,7 +38,7 @@ async function applyFeatures(features, index) {
   console.log("apply:  ", features, index)
   try{
     for (const [featureKey, featureValue] of Object.entries(features)) {
-      if (!featureValue.enabled) continue;
+      if (featureValue.enabled == false) continue;
 
       const indexEntry = index[featureKey];
       if (!indexEntry) {

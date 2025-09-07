@@ -1,4 +1,5 @@
 import { getPresetNames } from "../../util/get-preset-names.js";
+import { getURL } from "../../util/get-runtime-url.js";
 
 
 const enableToggle = document.getElementById("enableToggle");
@@ -70,3 +71,17 @@ async function reloadYT() {
     await browser.tabs.reload(ytTab.id);
   }
 }
+
+document.getElementById('open-preset-creator').addEventListener('click', async () => {
+  try {
+    // Create a new tab with the preset creator
+    const tab = await chrome.tabs.create({
+      url: getURL('ui/home/index.html'),
+      active: true
+    });
+    
+    console.log('Preset creator opened in tab:', tab.id);
+  } catch (error) {
+    console.error('Error opening preset creator:', error);
+  }
+});

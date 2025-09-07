@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="preset-creator.css" />
+    <title>Preset Creator</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Preset Creator</h1>
+            <p class="subtitle">Dynamically create and customize your presets</p>
+        </header>
+        
+        <div class="content">
+            <div class="form-container" id="formContainer">
+                <!-- Form will be generated here -->
+            </div>
+            
+            <div class="preview-container">
+                <h3 class="preview-title">Preset Preview</h3>
+                <pre id="jsonPreview">// Your preset will appear here</pre>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <input type="text" id="presetName" class="preset-name" placeholder="Enter preset name">
+            <button id="saveBtn">Save Preset</button>
+            <button id="resetBtn">Reset Form</button>
+            <button id="exportBtn">Export JSON</button>
+        </div>
+    </div>
+    <script src="preset-creator.js"></script>
+</body>
+</html>
