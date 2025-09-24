@@ -1,4 +1,4 @@
-import index from "../modules/index.js";
+import index from "../system/module-index.js";
 
 
 export async function applyPreset(preset) {

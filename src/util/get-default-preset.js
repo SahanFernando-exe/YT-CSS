@@ -1,4 +1,4 @@
-import { getURL } from "./runtime.js";
+import { getURL } from "./get-runtime-url.js";
 
 export async function getDefaultPreset() {
   const url = getURL(`presets/default.json`);

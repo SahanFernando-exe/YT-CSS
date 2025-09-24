@@ -292,11 +292,13 @@ pre {
 }
 
 .setting {
+    transition: background-color 0.1s;
     padding-top: 10px;
     background-color: #ddd0;
 }
 
 .setting:hover:not(:has(.setting:hover)) {
+    transition: background-color 0.2s;
     background-color: #fff;
 }
 
@@ -365,7 +367,7 @@ pre {
 }
 
 input:checked + .toggle-slider {
-  background-color: #4c4;
+  background-color: rgb(34, 145, 204);
 }
 
 input:checked + .toggle-slider:before {
@@ -375,7 +377,8 @@ input:checked + .toggle-slider:before {
 .setting-info{
     width: 20px;
     height: 20px;
-    background-color: red;
+    background: url('../assets/info.svg');
+    background-size: cover;
     .tooltip{
         visibility: hidden;
         position: relative;

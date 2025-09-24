@@ -1,5 +1,5 @@
 import { getPresetData } from "./get-preset-data.js";
-import { getURL } from "./runtime.js";
+import { getURL } from "./get-runtime-url.js";
 
 globalThis.storage ??= globalThis?.chrome?.storage || globalThis?.browser?.storage;
 

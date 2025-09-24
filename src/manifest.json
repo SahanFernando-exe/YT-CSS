@@ -42,7 +42,8 @@
       "resources":[
         "ui/*",
         "presets/*.json",
-        "system/*.js"
+        "system/*.js",
+        "system/controllers/*"
       ],
       "matches": ["<all_urls>"]
     }
