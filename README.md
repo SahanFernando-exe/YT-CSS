@@ -1,5 +1,6 @@
 # YT-CSS
 My Custom CSS overrides for theming Youtube.
+Any devs that would like to help may contact me on discord: tempname285
 
 ## Installation
 This project currently depends on the Youtube Enhancer Extension:
