@@ -216,8 +216,10 @@ ytd-comment-thread-renderer:hover #comment #body > #action-menu
 /* - secondary column */
 
 /* --playlist */
-ytd-playlist-panel-renderer {border: var(--border-style); border-radius: var(--roundedness); overflow: hidden;
+ytd-playlist-panel-renderer {border: var(--border-style); border-radius: var(--roundedness); overflow: hidden; resize: vertical; min-height: 200px; height: 400px;
 > #container{border: none !important; border-radius: 0 !important; overflow: visible !important; >#items{overflow-y: overlay;}}}
+
+ytd-playlist-panel-renderer[collapsed] {resize: none; min-height: 0px; height: fit-content !important;}
 
 /* -- related buttons */
 yt-related-chip-cloud-renderer{
