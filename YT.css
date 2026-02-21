@@ -348,6 +348,8 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 .ytp-play-progress{background: var(--primary-color) !important;}
 #progress{background-image:none !important; background-color: var(--primary-color) !important;}
 
+
+ytd-rich-item-renderer:has(>#content>ytd-ad-slot-renderer){display: none;}
 ytd-ad-slot-renderer{display: none;}
 #player-ads{display: none;}
 
