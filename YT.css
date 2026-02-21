@@ -58,6 +58,7 @@
   --comments-border: var(--item-border);
   --comments-border-hover: var(--item-border-hover);
 /* related videos section settings */
+  --related-video-size: 240px;
   --related-video-spacing: 8px;
   --related-video-padding: 12px;
   --related-video-margin: 0px;
@@ -236,7 +237,9 @@ yt-related-chip-cloud-renderer{
 { background-color: var(--related-video-background-color);
   border: var(--related-video-border);
   padding: var(--related-video-spacing) var(--related-video-padding);
-  margin: var(--related-video-margin);}
+  margin: var(--related-video-margin);
+  >div>a{width: var(--related-video-size) !important;}
+}
 
 #items > ytd-item-section-renderer > #contents > *:hover
 { background-color: var(--related-video-background-color-hover);
