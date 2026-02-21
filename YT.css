@@ -164,10 +164,22 @@ body.efyt-mini-player #container > #movie_player:not(.ytp-fullscreen) {border-ra
 #full-bleed-container > #player-full-bleed-container{height: fit-content;}
 #full-bleed-container > #player-full-bleed-container > #player-container{height: fit-content; position: static;}
 
-#primary #player{position: sticky; z-index: 1000; top: calc(var(--borders-widths) *2);}
+#primary #player{position: sticky; z-index: 400; top: calc(var(--borders-widths) *2);}
 #primary #player-container-outer{max-width: none !important; min-width: 0 !important;}
 #primary #player-container-inner{padding: 0; height: auto;}
 #primary #player-container{position: static; height: auto;}
+
+#primary #player::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+  z-index: -1;
+  pointer-events: none;
+  margin: calc(-2*var(--borders-widths));
+  mask: linear-gradient(to top, transparent var(--borders-widths), black calc(-2*var(--borders-widths)));
+  backdrop-filter: blur(var(--borders-widths));
+}
 
 ytd-player{height: auto; border-radius: 0 !important;}
 
