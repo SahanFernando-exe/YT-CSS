@@ -351,6 +351,7 @@ ytd-item-section-renderer > #contents > ytd-reel-shelf-renderer
 
 ytd-rich-item-renderer:has(>#content>ytd-ad-slot-renderer){display: none;}
 ytd-ad-slot-renderer{display: none;}
+ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-ads"]{display:none;}
 #player-ads{display: none;}
 
 #cinematics-container > div{overflow: hidden; border-radius: var(--roundedness);
