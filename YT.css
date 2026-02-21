@@ -177,7 +177,7 @@ body.efyt-mini-player #container > #movie_player:not(.ytp-fullscreen) {border-ra
   z-index: -1;
   pointer-events: none;
   margin: calc(-2*var(--borders-widths));
-  mask: linear-gradient(to top, transparent var(--borders-widths), black calc(-2*var(--borders-widths)));
+  mask: linear-gradient(to top, transparent var(--borders-widths), black calc(2*var(--borders-widths)));
   backdrop-filter: blur(var(--borders-widths));
 }
 
